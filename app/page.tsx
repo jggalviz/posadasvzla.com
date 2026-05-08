@@ -29,8 +29,7 @@ export default async function Home() {
     .from("posadas")
     .select("*")
     .order("created_at", { ascending: false })
-    .limit(4)
-    .throwOnError();
+    .limit(4);
 
   return (
     <main className="min-h-screen bg-background">
