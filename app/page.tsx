@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { 
   Search, MapPin, Zap, Wifi, Palmtree, Mountain, 
-  Trees, ChevronRight, Star, ArrowRight, ShieldCheck 
+  Trees, Sun, ChevronRight, Star, ArrowRight, ShieldCheck 
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import PosadaCard from "@/components/PosadaCard";
@@ -19,7 +19,8 @@ const STATES = [
 const ZONES = [
   { name: "Playa", icon: <Palmtree size={24} />, color: "bg-secondary/10 text-secondary" },
   { name: "Montaña", icon: <Mountain size={24} />, color: "bg-primary/10 text-primary" },
-  { name: "Selva", icon: <Trees size={24} />, color: "bg-accent/30 text-primary" }
+  { name: "Selva", icon: <Trees size={24} />, color: "bg-accent/30 text-primary" },
+  { name: "Llanos", icon: <Sun size={24} />, color: "bg-yellow-50 text-yellow-700" }
 ];
 
 export default async function Home() {
@@ -90,7 +91,7 @@ export default async function Home() {
 
       {/* 2. Explore por Ambiente (Zonas) */}
       <section className="max-w-7xl mx-auto px-6 -mt-16 relative z-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {ZONES.map((zone) => (
             <Link 
               key={zone.name}
