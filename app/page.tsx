@@ -31,7 +31,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-background">
-      {/* 1. Hero Section - Impacto Visual */}
+      {/* 1. Hero Section - Impacto Visual y Experiencia */}
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
