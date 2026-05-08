@@ -17,9 +17,9 @@ const STATES = [
 ];
 
 const ZONES = [
-  { name: "Playa", icon: <Palmtree size={24} />, color: "bg-blue-50 text-blue-600" },
-  { name: "Montaña", icon: <Mountain size={24} />, color: "bg-emerald-50 text-emerald-600" },
-  { name: "Selva", icon: <Trees size={24} />, color: "bg-green-50 text-green-600" }
+  { name: "Playa", icon: <Palmtree size={24} />, color: "bg-secondary/10 text-secondary" },
+  { name: "Montaña", icon: <Mountain size={24} />, color: "bg-primary/10 text-primary" },
+  { name: "Selva", icon: <Trees size={24} />, color: "bg-accent/30 text-primary" }
 ];
 
 export default async function Home() {
