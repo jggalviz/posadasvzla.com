@@ -12,13 +12,22 @@ export default function DeletePosadaButton({ id, posadaName }: { id: string, pos
 
   const handleDelete = async () => {
     setIsDeleting(true);
-    const result = await deletePosada(id);
-    
-    if (result.success) {
-      router.push("/explorar");
-      router.refresh();
-    } else {
-      alert("Error al eliminar: " + result.error);
+    try {
+      const result = await deletePosada(id);
+      
+      if (result.success) {
+        router.push("/explorar");
+        router.refresh();
+      } else {
+        const msg = typeof result.error === "object"
+          ? JSON.stringify(result.error)
+          : result.error;
+        alert("❌ Error al eliminar:\n" + msg);
+        setIsDeleting(false);
+        setShowConfirm(false);
+      }
+    } catch (e: any) {
+      alert("❌ Excepción: " + e.message);
       setIsDeleting(false);
       setShowConfirm(false);
     }
