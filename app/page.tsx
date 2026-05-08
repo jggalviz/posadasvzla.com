@@ -8,8 +8,9 @@ import {
 import { supabase } from "@/lib/supabase";
 import PosadaCard from "@/components/PosadaCard";
 
-// Forzar renderizado dinámico para ver las últimas posadas siempre
+// Forzar renderizado dinámico - nunca cachear en Vercel CDN
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 const STATES = [
   "Miranda", "Mérida", "Falcón", "Anzoátegui", "Nueva Esparta", "Aragua", "Los Roques"
@@ -22,12 +23,13 @@ const ZONES = [
 ];
 
 export default async function Home() {
-  // Obtener las últimas 4 posadas
+  // Obtener las últimas 4 posadas - sin caché
   const { data: latestPosadas } = await supabase
     .from("posadas")
     .select("*")
     .order("created_at", { ascending: false })
-    .limit(4);
+    .limit(4)
+    .throwOnError();
 
   return (
     <main className="min-h-screen bg-background">
