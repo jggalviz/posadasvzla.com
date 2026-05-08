@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FEFAE0;
+  --foreground: #4A3728;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+}
+
+@layer components {
+  .glass {
+    background: rgba(254, 250, 224, 0.7); /* Using cream with opacity */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(74, 55, 40, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(74, 55, 40, 0.1);
+  }
+
+  .btn-terracotta {
+    @apply bg-secondary text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:bg-[#c69363] hover:shadow-lg active:scale-95;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
